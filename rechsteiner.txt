@@ -1,0 +1,3 @@
+Start: Wed, 9 Feb 2015 19:15:00 -0800
+End: Wed, 9 Feb 2015 23:29:22 -0800
+Tasks: Not counting time spent learning the material, I created my database table and set up my work environment.

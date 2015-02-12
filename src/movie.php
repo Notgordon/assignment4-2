@@ -20,14 +20,17 @@ if ($mysqli->connect_errno) {
 		echo "Connection Worked!<br>";
 	}
 	
-if (!$mysqli->query("DROP TABLE IF EXISTS vidstore") ||
-!$mysqli->query("CREATE TABLE vidstore(id INT NOT NULL AUTO_INCREMENT, 
-name VARCHAR(255) UNIQUE NOT NULL, 
-category VARCHAR(255) NOT NULL,
-length INT NOT NULL,
-PRIMARY KEY( id ))") ||
-!$mysqli->query("INSERT INTO vidstore(id, name, category, length) VALUES (1, 'TEST', 'TESTL', 4)")) {
-	echo "Table creation failed: (" . $mysqli->errno . ") " . $mysqli->error;
+
+
+if ($_POST){
+	$name = $_POST['name'];
+	$category = $_POST['category'];
+	$length = $_POST['length'];
+	echo $name, $category, $length;
+
+	if(!$mysqli->query("INSERT INTO vidstore(name, category, length) VALUES ('".$name."', '".$category."', ".$length.")")){
+		echo " couldn't be inserted" . '<br>';
+	}
 }
 
 if (!($stmt = $mysqli->prepare("SELECT id, name, category, length FROM vidstore"))) {
@@ -51,22 +54,18 @@ if (!$stmt->bind_result($out_id, $out_name, $out_category, $out_length)) {
 while ($stmt->fetch()) {
     printf("id = %s (%s), name = %s (%s), category = %s(%s) length = %s(%s)\n", $out_id, gettype($out_id), $out_name, gettype($out_name), $out_category, gettype($out_category), $out_length, gettype($out_length));
 }
-if ($_POST){
-	$name = $_POST['name'];
-	$category = $_POST['category'];
-	$length = $_POST['length'];
-	echo $name, $category, $length;
 
-	if(!$mysqli->query("INSERT INTO vidstore(name, category, length) VALUES ($name, $category, $length)")){
-		echo "Couldn't insert";
-	}
-}
 
 ?>
 
 <form method="post">
 Name: <input type = "text" name="name"> <br>
-Category: <input type = "text" name="category"> <br>
+Category: <select name="category">
+			<option value="action">Action</option>
+			<option value="drama">Drama</option>
+			<option value="comedy">Comedy</option>
+			<option value="romantic">Romantic</option>
+		  </select> <br>
 Length: <input type = "number" name="length"> <br>
 <input type = "submit">
 

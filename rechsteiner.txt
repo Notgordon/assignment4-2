@@ -1,3 +1,10 @@
-Start: Wed, 9 Feb 2015 19:15:00 -0800
-End: Wed, 9 Feb 2015 23:29:22 -0800
+Start: Mon, 9 Feb 2015 19:15:00 -0800
+End: Mon, 9 Feb 2015 23:29:22 -0800
 Tasks: Not counting time spent learning the material, I created my database table and set up my work environment.
+Start: Tue, 10 Feb 2015 19:30:00 -0800
+End: Tue, 10 Feb 2015 23:12:22 -0800
+Tasks: Post data successfully added to table. Incrementation is issue now
+Start: Wed, 11 Feb 2015 15:45:00 -0800
+End: Wed, 11 Feb 2015 17:00:10 -0800
+Tasks: After getting help I was able to figure out how to increment my table
+

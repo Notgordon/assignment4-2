@@ -7,4 +7,6 @@ Tasks: Post data successfully added to table. Incrementation is issue now
 Start: Wed, 11 Feb 2015 15:45:00 -0800
 End: Wed, 11 Feb 2015 17:00:10 -0800
 Tasks: After getting help I was able to figure out how to increment my table
-
+Start: Fri, 13 Feb 2015 10:45:30 -0800
+End: Fri, 13 Feb 2015 15:04:10 -0800
+Tasks: I succcessfully outputted my table and added basic delete functionality

@@ -10,3 +10,6 @@ Tasks: After getting help I was able to figure out how to increment my table
 Start: Fri, 13 Feb 2015 10:45:30 -0800
 End: Fri, 13 Feb 2015 15:04:10 -0800
 Tasks: I succcessfully outputted my table and added basic delete functionality
+Start: Sun, 15 Feb 2015 14:10:00 -0800
+End: Sun, 15 Feb 2015 15:04:10 -0800
+Tasks: I added "renting" functionality

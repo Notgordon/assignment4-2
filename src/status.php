@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 $filePath = explode('/', $_SERVER['PHP_SELF'], -1);
 	$filePath = implode('/',$filePath);
 	$redirect = "http://" . $_SERVER['HTTP_HOST'] . $filePath;
@@ -9,8 +8,8 @@ $filePath = explode('/', $_SERVER['PHP_SELF'], -1);
 
 ini_set('display_errors','On');
 include 'storedInfo.php';
-
-
+	
+	
 $mysqli = new mysqli("oniddb.cws.oregonstate.edu", "rechstee-db",$myPassword, "rechstee-db");
 if ($mysqli->connect_errno) {
 	echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ")" . $mysqli->connect_error;
@@ -18,26 +17,22 @@ if ($mysqli->connect_errno) {
 else {
 		echo "Connection Worked!<br>";
 	}
+
+
+
+	$sname = $_POST['name'];
+	$rent = $_POST['rent'];
 	
-$dname = $_POST['name'];
-echo $dname;
-
-if ($dname != "deleteAll"){	
-	if (!($stmt = $mysqli->query("DELETE FROM vidstore WHERE name='".$dname."'"))){
-		echo "Failed to remove video";
+	if ( $rent == 1 ){
+		if (!($stmt = $mysqli->query("UPDATE vidstore SET rented = 0 WHERE name = '".$sname."'"))){
+			echo "could not rent out the movie";
+		}
 	}
-}
-
-else{
-if (!($stmt = $mysqli->query("TRUNCATE [TABLE] vidstore"))){
-		echo "Failed to remove videos";
-	}
-}
-
-
-
 	
-
-
-echo 'Click <a href="http://web.engr.oregonstate.edu/~rechstee/assignment4_2/movie.php">here<a/> to return to the table.';
+	if ( $rent == 0 ){
+	if (!($stmt = $mysqli->query("UPDATE vidstore SET rented = 1 WHERE name = '".$sname."'"))){
+			echo "could not rent out the movie";
+		}
+	}
+	
 ?>

@@ -14,7 +14,7 @@ Video Store Database
 </thead>
 <tbody>
 <?php
-	
+
 
 ini_set('display_errors','On');
 include 'storedInfo.php';
@@ -73,18 +73,6 @@ PRIMARY KEY( id ))") ) {
 }
 */
 
-if ($_POST){
-	$name = $_POST['name'];
-	$category = $_POST['category'];
-	$length = $_POST['length'];
-	$rented = 1;
-	
-	if(!$mysqli->query("INSERT INTO vidstore(name, category, length, rented) VALUES ('".$name."', '".$category."', ".$length.", ".$rented.")")){
-		echo " couldn't be inserted" . '<br>';
-	}
-	
-	
-}
 
 
 
@@ -118,7 +106,7 @@ while ($stmt->fetch()) {
 ?>
 </tbody>
 </table>
-<form method="post" action ="movie.php">
+<form method="post" action ="add.php">
 Name: <input type = "text" name="name"> <br>
 Category: <select name="category">
 			<option value="action">Action</option>
